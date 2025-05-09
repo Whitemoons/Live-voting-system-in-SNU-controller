@@ -11,7 +11,6 @@
     async function confirm() {
         console.log("선택된 상태:", selected);
         setSavedState(selected);
-        toggle(7);
     }
 
     function buttonLabel(i: number) {
