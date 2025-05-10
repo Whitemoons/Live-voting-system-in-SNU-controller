@@ -1,7 +1,7 @@
 <script lang="ts">
     import { setSavedState } from '$lib/state';
 
-    const labels = ['Round 2~5', 'Round 6'];
+    const labels = ['Round 1', 'Round 2~5', 'Round 6'];
     let selected = 9;
 
     function toggle(index: number) {
@@ -15,21 +15,21 @@
 
     function buttonLabel(i: number) {
         if (i == 0) return 'Inital';
-        if ([2, 4].includes(i)) return '히스';
-        if ([1, 3].includes(i)) return '혼또니';
-        if (i === 5) return 'Final';
-        if (i == 6) return 'result';
+        if ([2, 4, 6].includes(i)) return '히스';
+        if ([1, 3, 5].includes(i)) return '혼또니';
+        if (i === 7) return 'Final';
+        if (i == 8) return 'result';
         return '확인';
     }
 </script>
 
 <div class="grid">
-    <div class="label">Round 1</div>
+    <div class="label"></div>
     <button class="button  {selected == 0 ? 'selected' : ''}" on:click={() => toggle(0)}>
         {buttonLabel(0)}
     </button>
     <button class="button" on:click={() => confirm()}>
-        {buttonLabel(7)}
+        {buttonLabel(9)}
     </button>
     {#each labels as label, rowIdx}
         <div class="label">{label}</div>
@@ -41,11 +41,11 @@
         </button>
     {/each}
     <div></div>
-    <button class="button  {selected == 5 ? 'selected' : ''}" on:click={() => toggle(5)}>
-        {buttonLabel(5)}
+    <button class="button  {selected == 7 ? 'selected' : ''}" on:click={() => toggle(7)}>
+        {buttonLabel(7)}
     </button>
-    <button class="button  {selected == 6 ? 'selected' : ''}" on:click={() => toggle(6)}>
-        {buttonLabel(6)}
+    <button class="button  {selected == 8 ? 'selected' : ''}" on:click={() => toggle(8)}>
+        {buttonLabel(8)}
     </button>
 </div>
 
